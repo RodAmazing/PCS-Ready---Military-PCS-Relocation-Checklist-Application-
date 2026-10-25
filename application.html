@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCS Ready | Application Info</title>
+<link rel="stylesheet" href="PCSReadyStyles.css">
+</head>
+
+<body>
+
+<header>
+<h1>PCS READY</h1>
+<p>Your PCS. Organized.</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About You</a>
+<a href="application.html">Application Info</a>
+<a href="marketing.html">Marketing</a>
+<a href="userguide.html">User Guide</a>
+</nav>
+
+<main>
+
+<section class="hero">
+<h2>Everything in One PCS Checklist</h2>
+<p>
+PCS Ready is designed to help service members
+and their families manage important tasks
+throughout the relocation process.
+</p>
+<p>
+Explore the interactive prototype below
+to see how PCS Ready can help you stay organized.
+</p>
+</section>
+
+<section class="features">
+<h2>PCS Ready Application Features</h2>
+
+<div class="feature-grid">
+
+<article class="feature-card">
+<h3>Personalized Tasks</h3>
+<p>
+Organize PCS orders, household goods,
+POV shipments, housing, travel,
+and installation clearing.
+</p>
+</article>
+
+<article class="feature-card">
+<h3>Progress Tracking</h3>
+<p>
+Monitor completed and remaining tasks
+throughout your PCS move.
+</p>
+</article>
+
+<article class="feature-card">
+<h3>Important Reminders</h3>
+<p>
+Keep track of important deadlines
+and upcoming relocation requirements.
+</p>
+</article>
+
+</div>
+</section>
+
+<section class="hero">
+<h2>Interactive PCS Checklist</h2>
+
+<p>
+Select the tasks you have completed
+to track your PCS preparation progress.
+</p>
+
+<div class="checklist">
+
+<label>
+<input type="checkbox" class="pcs-task">
+Receive PCS Orders
+</label>
+
+<label>
+<input type="checkbox" class="pcs-task">
+Schedule Household Goods Shipment
+</label>
+
+<label>
+<input type="checkbox" class="pcs-task">
+Arrange POV Shipment
+</label>
+
+<label>
+<input type="checkbox" class="pcs-task">
+Apply for Housing
+</label>
+
+<label>
+<input type="checkbox" class="pcs-task">
+Complete Installation Clearing
+</label>
+
+<label>
+<input type="checkbox" class="pcs-task">
+Arrange Travel
+</label>
+
+<label>
+<input type="checkbox" class="pcs-task">
+Organize Important Documents
+</label>
+
+</div>
+
+<h3>Your PCS Progress</h3>
+
+<div class="progress-container">
+<div id="progress-bar"></div>
+</div>
+
+<p id="progress-text" aria-live="polite">
+0% Complete
+</p>
+
+<button type="button" id="reset-button">
+Reset Checklist
+</button>
+
+<h3>Add Your Own PCS Task</h3>
+<p>Every PCS move is different. Add a task that is specific to your move.</p>
+<input type="text" id="customTask" placeholder="Enter a PCS task">
+<button type="button" onclick="addCustomTask()">Add Task</button>
+
+</section>
+
+<section class="hero">
+<h2>Future Application Development</h2>
+<p>
+The current prototype demonstrates the
+basic PCS checklist and progress-tracking
+features. Future versions of PCS Ready
+could include automated reminders,
+secure document storage, and
+personalized moving timelines.
+</p>
+</section>
+
+
+<section class="hero">
+
+<h2>Technical Requirements</h2>
+
+</main>
+
+<footer>
+<p>PCS Ready | ITCC298 Final Capstone Project</p>
+<p>Created by Rodney Ragin | 2026</p>
+</footer>
+
+<script>
+let tasks = document.querySelectorAll(".pcs-task");
+const progressBar = document.getElementById("progress-bar");
+const progressText = document.getElementById("progress-text");
+const resetButton = document.getElementById("reset-button");
+
+function updateProgress() {
+tasks = document.querySelectorAll(".pcs-task");
+let completed = 0;
+
+tasks.forEach(function(task) {
+if (task.checked) {
+completed++;
+}
+});
+
+const percentage = Math.round(
+(completed / tasks.length) * 100
+);
+
+progressBar.style.width = percentage + "%";
+progressText.textContent = percentage + "% Complete";
+}
+
+tasks.forEach(function(task) {
+task.addEventListener("change", updateProgress);
+});
+
+
+resetButton.addEventListener("click", function() {
+tasks = document.querySelectorAll(".pcs-task");
+tasks.forEach(function(task) {
+task.checked = false;
+});
+updateProgress();
+});
+
+
+function addCustomTask() {
+const taskInput = document.getElementById("customTask");
+const taskText = taskInput.value.trim();
+
+if (taskText === "") {
+alert("Please enter a PCS task.");
+return;
+}
+
+const checklist = document.querySelector(".checklist");
+if (!checklist) {
+alert("Checklist not found.");
+return;
+}
+
+const label = document.createElement("label");
+const checkbox = document.createElement("input");
+
+checkbox.type = "checkbox";
+checkbox.className = "pcs-task";
+checkbox.addEventListener("change", updateProgress);
+
+label.appendChild(checkbox);
+label.appendChild(document.createTextNode(" " + taskText));
+checklist.appendChild(label);
+
+taskInput.value = "";
+updateProgress();
+}
+
+</script>
+
+</body>
+</html>

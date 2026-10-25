@@ -1,0 +1,294 @@
+/* PCS READY WEBSITE STYLESHEET */
+/* ITCC298 Final Capstone Project */
+
+/* GENERAL WEBSITE SETTINGS */
+
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+padding: 0;
+font-family: Arial, Helvetica, sans-serif;
+background-color: #F1F4F8;
+color: #243247;
+line-height: 1.6;
+text-align: left;
+}
+
+/* WEBSITE HEADER */
+
+header {
+background-color: #142D4E;
+color: white;
+padding: 30px 8%;
+text-align: left;
+border-bottom: 5px solid #C9A34E;
+}
+
+header h1 {
+font-size: 36px;
+margin: 0;
+letter-spacing: 2px;
+color: white;
+}
+
+header p {
+font-size: 18px;
+margin: 5px 0 0;
+color: #E5EAF0;
+}
+
+/* NAVIGATION MENU */
+
+nav {
+background-color: #203F65;
+padding: 15px 8%;
+display: flex;
+flex-wrap: wrap;
+gap: 25px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+font-size: 16px;
+font-weight: bold;
+transition: color 0.3s;
+}
+
+nav a:hover {
+color: #C9A34E;
+}
+
+nav a:focus-visible {
+outline: 2px solid #C9A34E;
+outline-offset: 5px;
+}
+
+/* MAIN WEBSITE CONTENT */
+
+main {
+max-width: 1200px;
+margin: 0 auto;
+padding: 35px 25px;
+}
+
+h2 {
+font-size: 30px;
+color: #142D4E;
+margin-top: 0;
+}
+
+h3 {
+font-size: 21px;
+color: #142D4E;
+}
+
+p {
+font-size: 17px;
+}
+
+/* HOMEPAGE HERO SECTION */
+
+.hero {
+background-color: white;
+padding: 45px;
+border-radius: 12px;
+border-left: 6px solid #C9A34E;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+margin-bottom: 35px;
+}
+
+.hero h2 {
+font-size: 36px;
+margin-bottom: 15px;
+}
+
+.hero p {
+max-width: 800px;
+}
+
+/* GET STARTED BUTTON */
+
+.button {
+display: inline-block;
+background-color: #142D4E;
+color: white;
+padding: 13px 25px;
+margin-top: 15px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: bold;
+transition: background-color 0.3s;
+}
+
+.button:hover {
+background-color: #365A85;
+color: white;
+}
+
+.button:focus-visible {
+outline: 3px solid #C9A34E;
+outline-offset: 3px;
+}
+
+/* FEATURES SECTION */
+
+.features {
+margin-top: 35px;
+margin-bottom: 35px;
+}
+
+.feature-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 22px;
+margin-top: 25px;
+}
+
+.feature-card {
+background-color: white;
+padding: 25px;
+border-radius: 10px;
+border-top: 5px solid #C9A34E;
+box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.feature-card h3 {
+margin-top: 0;
+}
+
+.feature-card p {
+font-size: 16px;
+}
+
+/* FOOTER */
+
+footer {
+background-color: #142D4E;
+color: white;
+padding: 25px 8%;
+text-align: left;
+margin-top: 40px;
+}
+
+footer p {
+font-size: 14px;
+margin: 5px 0;
+}
+
+/* MOBILE PHONE AND TABLET SUPPORT */
+
+@media screen and (max-width: 768px) {
+
+header {
+padding: 25px 20px;
+}
+
+header h1 {
+font-size: 28px;
+}
+
+nav {
+padding: 15px 20px;
+gap: 15px;
+}
+
+nav a {
+font-size: 14px;
+}
+
+main {
+padding: 20px 15px;
+}
+
+.hero {
+padding: 25px;
+}
+
+.hero h2 {
+font-size: 28px;
+}
+
+.feature-grid {
+grid-template-columns: 1fr;
+}
+
+}
+
+/* INTERACTIVE PCS CHECKLIST */
+
+.checklist {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin: 25px 0;
+}
+
+.checklist label {
+display: flex;
+align-items: center;
+gap: 12px;
+background-color: #F1F4F8;
+padding: 15px;
+border-radius: 8px;
+font-size: 16px;
+cursor: pointer;
+}
+
+.checklist label:hover {
+background-color: #E4EAF2;
+}
+
+.pcs-task {
+width: 20px;
+height: 20px;
+accent-color: #142D4E;
+cursor: pointer;
+}
+
+/* PROGRESS TRACKER */
+
+.progress-container {
+width: 100%;
+height: 25px;
+background-color: #DCE3EB;
+border-radius: 15px;
+overflow: hidden;
+}
+
+#progress-bar {
+width: 0%;
+height: 100%;
+background-color: #C9A34E;
+transition: width 0.3s ease;
+}
+
+#progress-text {
+font-weight: bold;
+color: #142D4E;
+}
+
+/* RESET BUTTON */
+
+#reset-button {
+background-color: #142D4E;
+color: white;
+padding: 12px 22px;
+border: none;
+border-radius: 6px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+
+#reset-button:hover {
+background-color: #365A85;
+}
+
+#reset-button:focus-visible {
+outline: 3px solid #C9A34E;
+outline-offset: 3px;
+}
