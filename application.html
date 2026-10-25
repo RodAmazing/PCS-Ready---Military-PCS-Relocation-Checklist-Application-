@@ -25,45 +25,51 @@
 <main>
 
 <section class="hero">
-<h2>Everything in One PCS Checklist</h2>
+<h2>About the PCS Ready Application</h2>
 <p>
-PCS Ready is designed to help service members
-and their families manage important tasks
-throughout the relocation process.
+PCS Ready is a website-based application prototype
+designed to help military service members and their
+families stay organized during a Permanent Change
+of Station (PCS) move.
 </p>
 <p>
-Explore the interactive prototype below
-to see how PCS Ready can help you stay organized.
+The application brings common relocation tasks
+together in one checklist, allowing users to
+monitor their progress and add tasks based
+on their individual moving requirements.
 </p>
 </section>
 
 <section class="features">
-<h2>PCS Ready Application Features</h2>
+<h2>Application Features</h2>
 
 <div class="feature-grid">
 
 <article class="feature-card">
-<h3>Personalized Tasks</h3>
+<h3>Interactive Checklist</h3>
 <p>
-Organize PCS orders, household goods,
-POV shipments, housing, travel,
-and installation clearing.
+Review important PCS requirements, including
+orders, household goods shipments, vehicle
+transportation, housing, and installation clearing.
+Mark tasks complete as you finish them.
 </p>
 </article>
 
 <article class="feature-card">
 <h3>Progress Tracking</h3>
 <p>
-Monitor completed and remaining tasks
-throughout your PCS move.
+Monitor your relocation preparation with a
+progress tracker that automatically calculates
+the percentage of completed checklist tasks.
 </p>
 </article>
 
 <article class="feature-card">
-<h3>Important Reminders</h3>
+<h3>Custom PCS Tasks</h3>
 <p>
-Keep track of important deadlines
-and upcoming relocation requirements.
+Add personalized tasks to your checklist
+based on your family's specific needs
+and relocation responsibilities.
 </p>
 </article>
 
@@ -72,10 +78,9 @@ and upcoming relocation requirements.
 
 <section class="hero">
 <h2>Interactive PCS Checklist</h2>
-
 <p>
-Select the tasks you have completed
-to track your PCS preparation progress.
+Use the checklist below to explore the
+PCS Ready application prototype.
 </p>
 
 <div class="checklist">
@@ -132,57 +137,56 @@ Reset Checklist
 </button>
 
 <h3>Add Your Own PCS Task</h3>
-<p>Every PCS move is different. Add a task that is specific to your move.</p>
+<p>
+Every PCS move is different.
+Add a task that is specific to your move.
+</p>
+
 <input type="text" id="customTask" placeholder="Enter a PCS task">
 <button type="button" onclick="addCustomTask()">Add Task</button>
 
 </section>
 
 <section class="hero">
-<h2>Future Application Development</h2>
+<h2>Application Requirements</h2>
+
+<h3>Compatible Devices</h3>
 <p>
-The current prototype demonstrates the
-basic PCS checklist and progress-tracking
-features. Future versions of PCS Ready
-could include automated reminders,
-secure document storage, and
-personalized moving timelines.
+PCS Ready can be accessed using a desktop
+computer, laptop, tablet, or smartphone.
+No specialized equipment is required.
 </p>
+
+<h3>Internet and Browser Access</h3>
+<p>
+Users need an internet connection and
+a modern web browser, such as Safari,
+Google Chrome, Microsoft Edge, or Firefox.
+No additional software installation
+is required to use the website.
+</p>
+
+<h3>Current Prototype Limitations</h3>
+<p>
+PCS Ready is currently a demonstration
+application. Checklist progress and custom
+tasks are not permanently saved.
+Refreshing the page returns the checklist
+to its original seven tasks.
+</p>
+
 </section>
 
-
 <section class="hero">
-
-<h2>Technical Requirements</h2>
-
-<h3>Hardware Requirements</h3>
+<h2>Future Application Development</h2>
 <p>
-PCS Ready was developed using a MacBook Air.
-Users can access the website using a computer,
-tablet, or smartphone.
+Future versions of PCS Ready could include
+automatic deadline reminders, secure document
+storage, personalized relocation timelines,
+and user accounts that save checklist progress.
+These features are planned improvements
+and are not available in the current prototype.
 </p>
-
-<h3>Software Requirements</h3>
-<p>
-PCS Ready uses HTML, CSS, and JavaScript.
-HTML creates the website structure, CSS controls
-the appearance, and JavaScript makes the
-checklist interactive.
-</p>
-
-<h3>Development Tools</h3>
-<p>
-I used TextEdit on my MacBook Air to create
-the website and Safari to test the pages.
-</p>
-
-<h3>Browser Compatibility</h3>
-<p>
-PCS Ready can be accessed using modern
-web browsers such as Safari, Chrome,
-and Microsoft Edge.
-</p>
-
 </section>
 
 </main>
@@ -193,13 +197,17 @@ and Microsoft Edge.
 </footer>
 
 <script>
+
 let tasks = document.querySelectorAll(".pcs-task");
+
 const progressBar = document.getElementById("progress-bar");
 const progressText = document.getElementById("progress-text");
 const resetButton = document.getElementById("reset-button");
 
 function updateProgress() {
+
 tasks = document.querySelectorAll(".pcs-task");
+
 let completed = 0;
 
 tasks.forEach(function(task) {
@@ -214,23 +222,27 @@ const percentage = Math.round(
 
 progressBar.style.width = percentage + "%";
 progressText.textContent = percentage + "% Complete";
+
 }
 
 tasks.forEach(function(task) {
 task.addEventListener("change", updateProgress);
 });
 
-
 resetButton.addEventListener("click", function() {
+
 tasks = document.querySelectorAll(".pcs-task");
+
 tasks.forEach(function(task) {
 task.checked = false;
 });
+
 updateProgress();
+
 });
 
-
 function addCustomTask() {
+
 const taskInput = document.getElementById("customTask");
 const taskText = taskInput.value.trim();
 
@@ -240,6 +252,7 @@ return;
 }
 
 const checklist = document.querySelector(".checklist");
+
 if (!checklist) {
 alert("Checklist not found.");
 return;
@@ -254,10 +267,13 @@ checkbox.addEventListener("change", updateProgress);
 
 label.appendChild(checkbox);
 label.appendChild(document.createTextNode(" " + taskText));
+
 checklist.appendChild(label);
 
 taskInput.value = "";
+
 updateProgress();
+
 }
 
 </script>
